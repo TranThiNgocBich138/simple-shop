@@ -34,3 +34,20 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# environment variables
+.env
+.env.*
+!.env.example
+
+# prisma sqlite database
+prisma/dev.db
+prisma/dev.db-journal
+*.db
+*.db-journal
+
+# local AI / editor config
+.agents/
+.claude/
+.cursor/
+.devin/
