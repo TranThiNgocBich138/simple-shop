@@ -376,7 +376,7 @@ async function handleLogout() {
                 href="#categories"
                 className="rounded-2xl border border-slate-200 bg-white px-7 py-4 text-sm font-bold shadow-sm transition hover:-translate-y-1 hover:border-violet-200 hover:text-violet-600"
               >
-                Xem danh mục
+                khám phá danh mục
               </a>
             </div>
 
