@@ -26,8 +26,17 @@ export default function RegisterPage() {
     setError("");
     setSuccess("");
 
-    if (!terms) {
-      setError("Vui lòng đồng ý với điều khoản sử dụng.");
+    const trimmedName = name.trim();
+    const trimmedEmail = email.trim();
+
+    if (!trimmedName || !trimmedEmail || !password || !confirmPassword) {
+      setError("Vui lòng nhập đầy đủ thông tin.");
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(trimmedEmail)) {
+      setError("Địa chỉ email không hợp lệ (ví dụ: user@example.com).");
       return;
     }
 
@@ -41,6 +50,11 @@ export default function RegisterPage() {
       return;
     }
 
+    if (!terms) {
+      setError("Vui lòng đồng ý với điều khoản sử dụng.");
+      return;
+    }
+
     try {
       setLoading(true);
 
@@ -50,9 +64,10 @@ export default function RegisterPage() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          name,
-          email,
+          name: trimmedName,
+          email: trimmedEmail,
           password,
+          confirmPassword,
         }),
       });
 
@@ -68,8 +83,8 @@ export default function RegisterPage() {
       setTimeout(() => {
         router.push("/login");
       }, 1200);
-    } catch (error) {
-      console.error(error);
+    } catch (err) {
+      console.error("REGISTER_SUBMIT_ERROR:", err);
       setError("Không thể kết nối đến máy chủ.");
     } finally {
       setLoading(false);
@@ -189,7 +204,7 @@ export default function RegisterPage() {
                   </label>
 
                   <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 transition focus-within:border-violet-400 focus-within:bg-white focus-within:ring-4 focus-within:ring-violet-100">
-                    <span className="text-lg text-slate-400">♙</span>
+                    <span className="text-lg text-slate-400">👤</span>
 
                     <input
                       type="text"
@@ -257,7 +272,7 @@ export default function RegisterPage() {
                   </label>
 
                   <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 transition focus-within:border-violet-400 focus-within:bg-white focus-within:ring-4 focus-within:ring-violet-100">
-                    <span className="text-lg text-slate-400">✓</span>
+                    <span className="text-lg text-slate-400">🔑</span>
 
                     <input
                       type={showConfirm ? "text" : "password"}
@@ -285,12 +300,12 @@ export default function RegisterPage() {
                     type="checkbox"
                     checked={terms}
                     onChange={(e) => setTerms(e.target.checked)}
-                    className="mt-1 h-4 w-4 accent-violet-600"
+                    className="mt-1 h-4 w-4 accent-violet-600 cursor-pointer"
                   />
 
                   <label
                     htmlFor="terms"
-                    className="text-xs leading-5 text-slate-500"
+                    className="text-xs leading-5 text-slate-500 cursor-pointer"
                   >
                     Tôi đồng ý với điều khoản sử dụng và chính sách
                     bảo mật của Simple Shop.
@@ -320,20 +335,6 @@ export default function RegisterPage() {
                   {loading ? "Đang tạo tài khoản..." : "Tạo tài khoản →"}
                 </button>
               </form>
-
-              <div className="my-6 flex items-center gap-4">
-                <div className="h-px flex-1 bg-slate-200" />
-                <span className="text-xs text-slate-400">HOẶC</span>
-                <div className="h-px flex-1 bg-slate-200" />
-              </div>
-
-              <button
-                type="button"
-                className="flex w-full items-center justify-center gap-3 rounded-2xl border border-slate-200 bg-white py-3.5 text-sm font-bold transition hover:bg-slate-50 hover:shadow-md"
-              >
-                <span className="text-lg">G</span>
-                Đăng ký với Google
-              </button>
 
               <p className="mt-7 text-center text-sm text-slate-500">
                 Đã có tài khoản?{" "}
