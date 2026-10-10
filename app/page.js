@@ -144,7 +144,7 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen bg-[#f7f8fc] text-slate-900">
+    <main className="min-h-screen bg-[#fff5f8] text-slate-900">
       {/* NOTIFICATION TOAST */}
       {notification && (
         <div className="fixed bottom-6 right-6 z-50 rounded-2xl bg-slate-950 px-6 py-4 font-bold text-white shadow-2xl transition animate-bounce">
@@ -158,16 +158,16 @@ export default function Home() {
       </div>
 
       {/* HEADER */}
-      <header className="sticky top-0 z-50 border-b border-slate-200/70 bg-white/90 backdrop-blur-xl">
+      <header className="sticky top-0 z-50 border-b border-pink-100 bg-white/90 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center gap-6 px-5 py-4 lg:px-8">
           {/* LOGO */}
           <Link href="/" className="flex shrink-0 items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-600 to-indigo-600 text-xl font-black text-white shadow-lg shadow-indigo-200">
+            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-pink-500 to-rose-500 text-xl font-black text-white shadow-lg shadow-pink-200">
               S
             </div>
             <div>
               <div className="text-lg font-black tracking-tight">SIMPLE</div>
-              <div className="-mt-1 text-[10px] font-bold tracking-[0.25em] text-violet-600">
+              <div className="-mt-1 text-[10px] font-bold tracking-[0.25em] text-pink-600">
                 SHOP
               </div>
             </div>
@@ -175,16 +175,16 @@ export default function Home() {
 
           {/* NAV */}
           <nav className="hidden items-center gap-7 text-sm font-semibold lg:flex">
-            <a className="text-violet-600 font-bold" href="#">
+            <a className="text-pink-600 font-bold" href="#">
               Trang chủ
             </a>
-            <a className="transition hover:text-violet-600" href="#products">
+            <a className="transition hover:text-pink-600" href="#products">
               Sản phẩm
             </a>
-            <a className="transition hover:text-violet-600" href="#categories">
+            <a className="transition hover:text-pink-600" href="#categories">
               Danh mục
             </a>
-            <a className="transition hover:text-violet-600" href="#about">
+            <a className="transition hover:text-pink-600" href="#about">
               Về chúng tôi
             </a>
           </nav>
@@ -209,7 +209,7 @@ export default function Home() {
           >
             🛒
             {cartCount > 0 && (
-              <span className="absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-violet-600 px-1 text-[10px] font-bold text-white">
+              <span className="absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-pink-600 px-1 text-[10px] font-bold text-white">
                 {cartCount}
               </span>
             )}
@@ -220,9 +220,9 @@ export default function Home() {
             <div className="relative">
               <button
                 onClick={() => setShowAccount((value) => !value)}
-                className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white px-3 py-2 shadow-sm transition hover:border-violet-300 hover:shadow-md"
+                className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white px-3 py-2 shadow-sm transition hover:border-pink-300 hover:shadow-md"
               >
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-violet-100 font-black text-violet-600">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-pink-100 font-black text-pink-600">
                   {user.name ? user.name.charAt(0).toUpperCase() : "U"}
                 </div>
                 <div className="hidden text-left sm:block">
@@ -242,7 +242,7 @@ export default function Home() {
                 <div className="absolute right-0 top-14 z-[100] w-72 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl">
                   <div className="border-b border-slate-100 bg-slate-50 p-4">
                     <div className="flex items-center gap-3">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-violet-100 text-lg font-black text-violet-600">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-pink-100 text-lg font-black text-pink-600">
                         {user.name ? user.name.charAt(0).toUpperCase() : "U"}
                       </div>
                       <div className="min-w-0">
@@ -257,7 +257,7 @@ export default function Home() {
                       <Link
                         href="/admin"
                         onClick={() => setShowAccount(false)}
-                        className="flex w-full items-center gap-3 rounded-xl px-4 py-3 text-left text-sm font-bold text-violet-600 transition hover:bg-violet-50"
+                        className="flex w-full items-center gap-3 rounded-xl px-4 py-3 text-left text-sm font-bold text-pink-600 transition hover:bg-pink-50"
                       >
                         ⚡ <span>Trang Quản trị (Admin)</span>
                       </Link>
@@ -266,7 +266,7 @@ export default function Home() {
                     <Link
                       href="/orders"
                       onClick={() => setShowAccount(false)}
-                      className="flex w-full items-center gap-3 rounded-xl px-4 py-3 text-left text-sm font-semibold transition hover:bg-violet-50 hover:text-violet-600"
+                      className="flex w-full items-center gap-3 rounded-xl px-4 py-3 text-left text-sm font-semibold transition hover:bg-pink-50 hover:text-pink-600"
                     >
                       📦 <span>Đơn hàng của tôi</span>
                     </Link>
@@ -284,7 +284,7 @@ export default function Home() {
           ) : (
             <Link
               href="/login"
-              className="rounded-2xl bg-slate-950 px-5 py-3 text-sm font-bold text-white shadow-lg shadow-slate-200 transition hover:-translate-y-0.5 hover:bg-violet-600"
+              className="rounded-2xl bg-slate-950 px-5 py-3 text-sm font-bold text-white shadow-lg shadow-slate-200 transition hover:-translate-y-0.5 hover:bg-pink-600"
             >
               Đăng nhập
             </Link>
@@ -294,20 +294,20 @@ export default function Home() {
 
       {/* HERO */}
       <section className="relative overflow-hidden">
-        <div className="absolute -left-32 top-10 h-72 w-72 rounded-full bg-violet-400/20 blur-3xl" />
-        <div className="absolute -right-20 bottom-0 h-96 w-96 rounded-full bg-indigo-400/20 blur-3xl" />
+        <div className="absolute -left-32 top-10 h-72 w-72 rounded-full bg-pink-400/20 blur-3xl" />
+        <div className="absolute -right-20 bottom-0 h-96 w-96 rounded-full bg-rose-400/20 blur-3xl" />
 
         <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-5 py-16 lg:grid-cols-2 lg:px-8 lg:py-24">
           <div>
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-violet-200 bg-white px-4 py-2 text-xs font-bold text-violet-700 shadow-sm">
-              <span className="h-2 w-2 rounded-full bg-violet-500" />
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-pink-200 bg-white px-4 py-2 text-xs font-bold text-pink-700 shadow-sm">
+              <span className="h-2 w-2 rounded-full bg-pink-500" />
               Bộ sưu tập mới 2026
             </div>
 
             <h1 className="max-w-3xl text-5xl font-black leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
               Mua sắm
               <br />
-              <span className="bg-gradient-to-r from-violet-600 via-indigo-600 to-blue-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-pink-600 via-rose-500 to-fuchsia-500 bg-clip-text text-transparent">
                 theo cách của bạn.
               </span>
             </h1>
@@ -320,13 +320,13 @@ export default function Home() {
             <div className="mt-8 flex flex-wrap gap-4">
               <a
                 href="#products"
-                className="rounded-2xl bg-slate-950 px-7 py-4 text-sm font-bold text-white shadow-xl shadow-slate-300 transition hover:-translate-y-1 hover:bg-violet-600"
+                className="rounded-2xl bg-slate-950 px-7 py-4 text-sm font-bold text-white shadow-xl shadow-slate-300 transition hover:-translate-y-1 hover:bg-pink-600"
               >
                 Khám phá sản phẩm →
               </a>
               <a
                 href="#categories"
-                className="rounded-2xl border border-slate-200 bg-white px-7 py-4 text-sm font-bold shadow-sm transition hover:-translate-y-1 hover:border-violet-200 hover:text-violet-600"
+                className="rounded-2xl border border-slate-200 bg-white px-7 py-4 text-sm font-bold shadow-sm transition hover:-translate-y-1 hover:border-pink-200 hover:text-pink-600"
               >
                 Khám phá danh mục
               </a>
@@ -334,7 +334,7 @@ export default function Home() {
           </div>
 
           <div className="relative">
-            <div className="overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-violet-100 to-indigo-100 p-3 shadow-2xl shadow-indigo-200/50">
+            <div className="overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-pink-100 to-rose-100 p-3 shadow-2xl shadow-pink-200/50">
               <div className="overflow-hidden rounded-[2rem]">
                 <Image
                   src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=85"
@@ -353,7 +353,7 @@ export default function Home() {
       <section id="categories" className="mx-auto max-w-7xl px-5 py-20 lg:px-8">
         <div className="mb-10 flex items-end justify-between gap-5">
           <div>
-            <div className="mb-3 text-sm font-bold uppercase tracking-widest text-violet-600">
+            <div className="mb-3 text-sm font-bold uppercase tracking-widest text-pink-600">
               Khám phá
             </div>
             <h2 className="text-3xl font-black tracking-tight sm:text-4xl">
@@ -363,7 +363,7 @@ export default function Home() {
           {selectedCategory && (
             <button
               onClick={() => setSelectedCategory(null)}
-              className="text-sm font-bold text-slate-500 hover:text-violet-600"
+              className="text-sm font-bold text-slate-500 hover:text-pink-600"
             >
               ✕ Tất cả danh mục
             </button>
@@ -379,24 +379,24 @@ export default function Home() {
                 onClick={() => setSelectedCategory(isSelected ? null : category.id)}
                 className={`group cursor-pointer overflow-hidden rounded-3xl border p-6 shadow-sm transition duration-300 hover:-translate-y-1 ${
                   isSelected
-                    ? "border-violet-600 bg-violet-600 text-white shadow-violet-200"
-                    : "border-slate-200 bg-white hover:border-violet-200 hover:shadow-xl"
+                    ? "border-pink-600 bg-pink-600 text-white shadow-pink-200"
+                    : "border-slate-200 bg-white hover:border-pink-200 hover:shadow-xl hover:shadow-pink-100/50"
                 }`}
               >
                 <div className="flex items-start justify-between">
                   <div
                     className={`flex h-14 w-14 items-center justify-center rounded-2xl text-2xl ${
-                      isSelected ? "bg-white/20 text-white" : "bg-slate-950 text-white group-hover:bg-violet-600"
+                      isSelected ? "bg-white/20 text-white" : "bg-slate-950 text-white group-hover:bg-pink-600"
                     }`}
                   >
                     {category.icon || "✦"}
                   </div>
-                  <span className={`text-2xl ${isSelected ? "text-white" : "text-slate-300 group-hover:text-violet-500"}`}>
+                  <span className={`text-2xl ${isSelected ? "text-white" : "text-slate-300 group-hover:text-pink-500"}`}>
                     ↗
                   </span>
                 </div>
                 <h3 className="mt-7 text-lg font-black">{category.name}</h3>
-                <p className={`mt-1 text-sm ${isSelected ? "text-violet-200" : "text-slate-400"}`}>
+                <p className={`mt-1 text-sm ${isSelected ? "text-pink-200" : "text-slate-400"}`}>
                   {category._count?.products || 0} sản phẩm
                 </p>
               </div>
@@ -410,7 +410,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <div className="mb-10 flex flex-wrap items-end justify-between gap-5">
             <div>
-              <div className="mb-3 text-sm font-bold uppercase tracking-widest text-violet-600">
+              <div className="mb-3 text-sm font-bold uppercase tracking-widest text-pink-600">
                 Được yêu thích
               </div>
               <h2 className="text-3xl font-black tracking-tight sm:text-4xl">
@@ -431,7 +431,7 @@ export default function Home() {
 
           {loadingProducts ? (
             <div className="py-20 text-center text-slate-500">
-              <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-violet-600 border-t-transparent" />
+              <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-pink-600 border-t-transparent" />
               <p className="mt-3 font-semibold">Đang tải sản phẩm...</p>
             </div>
           ) : products.length === 0 ? (
@@ -443,7 +443,7 @@ export default function Home() {
               {products.map((product) => (
                 <article
                   key={product.id}
-                  className="group overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white transition duration-300 hover:-translate-y-2 hover:border-violet-200 hover:shadow-2xl hover:shadow-violet-100 flex flex-col justify-between"
+                  className="group overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white transition duration-300 hover:-translate-y-2 hover:border-pink-200 hover:shadow-2xl hover:shadow-pink-100 flex flex-col justify-between"
                 >
                   <div className="relative overflow-hidden bg-slate-100 h-72">
                     <Image
@@ -461,7 +461,9 @@ export default function Home() {
 
                     <button
                       onClick={() => toggleLike(product.id)}
-                      className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-lg shadow-lg backdrop-blur transition hover:scale-110"
+                      className={`absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-lg shadow-lg backdrop-blur transition hover:scale-110 ${
+                        liked.includes(product.id) ? "text-pink-600" : "text-slate-600"
+                      }`}
                     >
                       {liked.includes(product.id) ? "♥" : "♡"}
                     </button>
@@ -469,7 +471,7 @@ export default function Home() {
                     <button
                       onClick={() => handleAddToCart(product.id)}
                       disabled={addingId === product.id || product.stock <= 0}
-                      className="absolute bottom-4 left-4 right-4 translate-y-16 rounded-xl bg-slate-950 py-3 text-sm font-bold text-white opacity-0 shadow-xl transition duration-300 group-hover:translate-y-0 group-hover:opacity-100 hover:bg-violet-600 disabled:opacity-60"
+                      className="absolute bottom-4 left-4 right-4 translate-y-16 rounded-xl bg-slate-950 py-3 text-sm font-bold text-white opacity-0 shadow-xl transition duration-300 group-hover:translate-y-0 group-hover:opacity-100 hover:bg-pink-600 disabled:opacity-60"
                     >
                       {addingId === product.id
                         ? "Đang thêm..."
@@ -481,19 +483,19 @@ export default function Home() {
 
                   <div className="p-5 flex-1 flex flex-col justify-between">
                     <div>
-                      <div className="text-xs font-semibold text-violet-600">
+                      <div className="text-xs font-semibold text-pink-600">
                         {product.category?.name || "Danh mục"}
                       </div>
                       <h3 className="mt-2 font-black text-slate-900">{product.name}</h3>
                       <div className="mt-3 flex items-center gap-2 text-xs">
-                        <span className="font-bold">★ {product.rating || 5.0}</span>
+                        <span className="font-bold text-amber-500">★ {product.rating || 5.0}</span>
                         <span className="text-slate-300">•</span>
                         <span className="text-slate-400">Đã bán {product.sold || 0}</span>
                       </div>
                     </div>
 
                     <div className="mt-4 flex items-end gap-2">
-                      <span className="text-lg font-black text-violet-600">
+                      <span className="text-lg font-black text-pink-600">
                         {formatPrice(product.price)}
                       </span>
                       {product.oldPrice && (
@@ -515,7 +517,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-5 py-14 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-violet-600 font-black">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-pink-600 font-black">
                 S
               </div>
               <span className="font-black">SIMPLE SHOP</span>

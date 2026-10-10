@@ -40,7 +40,7 @@ function SuccessContent() {
   if (loading) {
     return (
       <div className="text-center py-20">
-        <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-violet-600 border-t-transparent" />
+        <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-pink-600 border-t-transparent" />
         <p className="mt-3 text-slate-500 font-semibold">Đang tải thông tin đơn hàng...</p>
       </div>
     );
@@ -65,7 +65,7 @@ function SuccessContent() {
           <div className="flex justify-between items-center border-b border-slate-100 pb-4">
             <div>
               <div className="text-xs text-slate-400 font-semibold">MÃ ĐƠN HÀNG</div>
-              <div className="text-lg font-black text-violet-600">{order.orderNumber}</div>
+              <div className="text-lg font-black text-pink-600">{order.orderNumber}</div>
             </div>
             <span className="rounded-full bg-amber-50 px-3 py-1 text-xs font-bold text-amber-600 border border-amber-200">
               {order.status}
@@ -101,7 +101,7 @@ function SuccessContent() {
 
           <div className="border-t border-slate-100 pt-4 flex justify-between items-center text-base">
             <span className="font-black">Tổng thanh toán</span>
-            <span className="font-black text-xl text-violet-600">{formatPrice(order.totalAmount)}</span>
+            <span className="font-black text-xl text-pink-600">{formatPrice(order.totalAmount)}</span>
           </div>
         </div>
       )}
@@ -109,7 +109,7 @@ function SuccessContent() {
       <div className="mt-8 flex justify-center gap-4">
         <Link
           href="/orders"
-          className="rounded-2xl bg-slate-950 px-7 py-4 text-sm font-black text-white shadow-xl hover:bg-violet-600 transition"
+          className="rounded-2xl bg-slate-950 px-7 py-4 text-sm font-black text-white shadow-xl hover:bg-pink-600 transition"
         >
           Xem lịch sử đơn hàng →
         </Link>
@@ -126,16 +126,16 @@ function SuccessContent() {
 
 export default function CheckoutSuccessPage() {
   return (
-    <main className="min-h-screen bg-[#f7f8fc] text-slate-900">
-      <header className="border-b border-slate-200/70 bg-white/90 backdrop-blur-xl">
+    <main className="min-h-screen bg-[#fff5f8] text-slate-900">
+      <header className="border-b border-pink-100 bg-white/90 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
           <Link href="/" className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-600 to-indigo-600 text-xl font-black text-white shadow-lg">
+            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-pink-500 to-rose-500 text-xl font-black text-white shadow-lg shadow-pink-200">
               S
             </div>
             <div>
               <div className="text-lg font-black tracking-tight">SIMPLE</div>
-              <div className="-mt-1 text-[9px] font-bold tracking-[0.25em] text-violet-600">
+              <div className="-mt-1 text-[9px] font-bold tracking-[0.25em] text-pink-600">
                 SHOP
               </div>
             </div>

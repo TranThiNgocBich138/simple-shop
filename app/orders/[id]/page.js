@@ -70,7 +70,7 @@ export default function OrderDetailPage() {
   }, [params.id]);
 
   return (
-    <main className="min-h-screen bg-[#f7f8fc] text-slate-900">
+    <main className="min-h-screen bg-[#fff5fb] text-slate-900">
       {/* HEADER */}
       <header className="sticky top-0 z-50 border-b border-slate-200/70 bg-white/90 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">

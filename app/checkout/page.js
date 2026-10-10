@@ -106,9 +106,9 @@ export default function CheckoutPage() {
 
   if (loading) {
     return (
-      <main className="min-h-screen bg-[#f7f8fc] flex items-center justify-center">
+      <main className="min-h-screen bg-[#fff5f8] flex items-center justify-center">
         <div className="text-center">
-          <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-violet-600 border-t-transparent" />
+          <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-pink-600 border-t-transparent" />
           <p className="mt-3 text-slate-500 font-semibold">Đang chuẩn bị trang thanh toán...</p>
         </div>
       </main>
@@ -116,23 +116,23 @@ export default function CheckoutPage() {
   }
 
   return (
-    <main className="min-h-screen bg-[#f7f8fc] text-slate-900">
+    <main className="min-h-screen bg-[#fff5f8] text-slate-900">
       {/* HEADER */}
-      <header className="border-b border-slate-200/70 bg-white/90 backdrop-blur-xl">
+      <header className="border-b border-pink-100 bg-white/90 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
           <Link href="/" className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-600 to-indigo-600 text-xl font-black text-white shadow-lg">
+            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-pink-500 to-rose-500 text-xl font-black text-white shadow-lg shadow-pink-200">
               S
             </div>
             <div>
               <div className="text-lg font-black tracking-tight">SIMPLE</div>
-              <div className="-mt-1 text-[9px] font-bold tracking-[0.25em] text-violet-600">
+              <div className="-mt-1 text-[9px] font-bold tracking-[0.25em] text-pink-600">
                 SHOP
               </div>
             </div>
           </Link>
 
-          <Link href="/cart" className="text-sm font-bold text-slate-600 hover:text-violet-600">
+          <Link href="/cart" className="text-sm font-bold text-slate-600 hover:text-pink-600">
             ← Quay lại giỏ hàng
           </Link>
         </div>
@@ -165,7 +165,7 @@ export default function CheckoutPage() {
                     onChange={(e) => setCustomerName(e.target.value)}
                     required
                     placeholder="Nguyễn Văn A"
-                    className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-sm outline-none focus:border-violet-400 focus:bg-white focus:ring-4 focus:ring-violet-100"
+                    className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-sm outline-none focus:border-pink-400 focus:bg-white focus:ring-4 focus:ring-pink-100"
                   />
                 </div>
 
@@ -178,7 +178,7 @@ export default function CheckoutPage() {
                       onChange={(e) => setCustomerPhone(e.target.value)}
                       required
                       placeholder="0912345678"
-                      className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-sm outline-none focus:border-violet-400 focus:bg-white focus:ring-4 focus:ring-violet-100"
+                      className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-sm outline-none focus:border-pink-400 focus:bg-white focus:ring-4 focus:ring-pink-100"
                     />
                   </div>
 
@@ -189,7 +189,7 @@ export default function CheckoutPage() {
                       value={customerEmail}
                       onChange={(e) => setCustomerEmail(e.target.value)}
                       placeholder="user@example.com"
-                      className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-sm outline-none focus:border-violet-400 focus:bg-white focus:ring-4 focus:ring-violet-100"
+                      className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-sm outline-none focus:border-pink-400 focus:bg-white focus:ring-4 focus:ring-pink-100"
                     />
                   </div>
                 </div>
@@ -202,7 +202,7 @@ export default function CheckoutPage() {
                     onChange={(e) => setAddress(e.target.value)}
                     required
                     placeholder="Số nhà, Tên đường, Phường/Xã, Quận/Huyện, Tỉnh/Thành phố..."
-                    className="w-full rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm outline-none focus:border-violet-400 focus:bg-white focus:ring-4 focus:ring-violet-100"
+                    className="w-full rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm outline-none focus:border-pink-400 focus:bg-white focus:ring-4 focus:ring-pink-100"
                   />
                 </div>
               </div>
@@ -213,14 +213,14 @@ export default function CheckoutPage() {
               <h2 className="text-xl font-black mb-6">2. Phương thức thanh toán</h2>
 
               <div className="space-y-3">
-                <label className="flex items-center gap-4 rounded-2xl border border-slate-200 p-4 cursor-pointer hover:border-violet-300 transition">
+                <label className="flex items-center gap-4 rounded-2xl border border-slate-200 p-4 cursor-pointer hover:border-pink-300 transition">
                   <input
                     type="radio"
                     name="paymentMethod"
                     value="COD"
                     checked={paymentMethod === "COD"}
                     onChange={(e) => setPaymentMethod(e.target.value)}
-                    className="h-5 w-5 accent-violet-600"
+                    className="h-5 w-5 accent-pink-600"
                   />
                   <div>
                     <div className="font-bold">Thanh toán khi nhận hàng (COD)</div>
@@ -228,14 +228,14 @@ export default function CheckoutPage() {
                   </div>
                 </label>
 
-                <label className="flex items-center gap-4 rounded-2xl border border-slate-200 p-4 cursor-pointer hover:border-violet-300 transition">
+                <label className="flex items-center gap-4 rounded-2xl border border-slate-200 p-4 cursor-pointer hover:border-pink-300 transition">
                   <input
                     type="radio"
                     name="paymentMethod"
                     value="BANKING"
                     checked={paymentMethod === "BANKING"}
                     onChange={(e) => setPaymentMethod(e.target.value)}
-                    className="h-5 w-5 accent-violet-600"
+                    className="h-5 w-5 accent-pink-600"
                   />
                   <div>
                     <div className="font-bold">Chuyển khoản ngân hàng</div>
@@ -260,7 +260,7 @@ export default function CheckoutPage() {
                     <p className="font-bold truncate">{item.product.name}</p>
                     <p className="text-xs text-slate-400">SL: {item.quantity}</p>
                   </div>
-                  <p className="font-bold text-violet-600 shrink-0">
+                  <p className="font-bold text-pink-600 shrink-0">
                     {formatPrice(item.product.price * item.quantity)}
                   </p>
                 </div>
@@ -282,14 +282,14 @@ export default function CheckoutPage() {
 
               <div className="border-t border-slate-200 pt-3 flex justify-between">
                 <span className="font-black text-base">Tổng thanh toán</span>
-                <span className="font-black text-2xl text-violet-600">{formatPrice(total)}</span>
+                <span className="font-black text-2xl text-pink-600">{formatPrice(total)}</span>
               </div>
             </div>
 
             <button
               type="submit"
               disabled={submitting}
-              className="mt-6 w-full rounded-2xl bg-slate-950 py-4 text-sm font-black text-white shadow-xl transition hover:-translate-y-0.5 hover:bg-violet-600 disabled:opacity-60"
+              className="mt-6 w-full rounded-2xl bg-slate-950 py-4 text-sm font-black text-white shadow-xl transition hover:-translate-y-0.5 hover:bg-pink-600 disabled:opacity-60"
             >
               {submitting ? "Đang xử lý đơn hàng..." : "Xác nhận đặt hàng →"}
             </button>

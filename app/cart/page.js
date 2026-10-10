@@ -109,17 +109,17 @@ export default function CartPage() {
   const total = subtotal + shippingFee;
 
   return (
-    <main className="min-h-screen bg-[#f7f8fc] text-slate-900">
+    <main className="min-h-screen bg-[#fff5f8] text-slate-900">
       {/* HEADER */}
-      <header className="sticky top-0 z-50 border-b border-slate-200/70 bg-white/90 backdrop-blur-xl">
+      <header className="sticky top-0 z-50 border-b border-pink-100 bg-white/90 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
           <Link href="/" className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-600 to-indigo-600 text-xl font-black text-white shadow-lg shadow-indigo-200">
+            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-pink-500 to-rose-500 text-xl font-black text-white shadow-lg shadow-pink-200">
               S
             </div>
             <div>
               <div className="text-lg font-black tracking-tight">SIMPLE</div>
-              <div className="-mt-1 text-[10px] font-bold tracking-[0.25em] text-violet-600">
+              <div className="-mt-1 text-[10px] font-bold tracking-[0.25em] text-pink-600">
                 SHOP
               </div>
             </div>
@@ -127,7 +127,7 @@ export default function CartPage() {
 
           <Link
             href="/"
-            className="text-sm font-bold text-slate-600 hover:text-violet-600"
+            className="text-sm font-bold text-slate-600 hover:text-pink-600"
           >
             ← Tiếp tục mua sắm
           </Link>
@@ -148,7 +148,7 @@ export default function CartPage() {
 
         {loading ? (
           <div className="mt-12 text-center py-12">
-            <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-violet-600 border-t-transparent" />
+            <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-pink-600 border-t-transparent" />
             <p className="mt-3 text-slate-500 font-semibold">Đang tải giỏ hàng...</p>
           </div>
         ) : !user ? (
@@ -158,7 +158,7 @@ export default function CartPage() {
             <p className="mt-2 text-slate-500">Vui lòng đăng nhập để xem và quản lý giỏ hàng của bạn.</p>
             <Link
               href="/login?redirect=/cart"
-              className="mt-6 inline-block rounded-2xl bg-slate-950 px-8 py-4 text-sm font-black text-white shadow-xl hover:bg-violet-600 transition"
+              className="mt-6 inline-block rounded-2xl bg-slate-950 px-8 py-4 text-sm font-black text-white shadow-xl hover:bg-pink-600 transition"
             >
               Đăng nhập ngay →
             </Link>
@@ -170,7 +170,7 @@ export default function CartPage() {
             <p className="mt-2 text-slate-500">Hãy thêm những sản phẩm yêu thích vào giỏ nhé.</p>
             <Link
               href="/"
-              className="mt-6 inline-block rounded-2xl bg-slate-950 px-8 py-4 text-sm font-black text-white shadow-xl hover:bg-violet-600 transition"
+              className="mt-6 inline-block rounded-2xl bg-slate-950 px-8 py-4 text-sm font-black text-white shadow-xl hover:bg-pink-600 transition"
             >
               Khám phá sản phẩm ngay →
             </Link>
@@ -182,7 +182,7 @@ export default function CartPage() {
               {items.map((item) => (
                 <div
                   key={item.id}
-                  className="flex flex-col sm:flex-row items-center gap-5 rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition hover:border-violet-200"
+                  className="flex flex-col sm:flex-row items-center gap-5 rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition hover:border-pink-200"
                 >
                   <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-2xl bg-slate-100">
                     <Image
@@ -195,7 +195,7 @@ export default function CartPage() {
 
                   <div className="flex-1 text-center sm:text-left">
                     <h3 className="font-black text-lg">{item.product.name}</h3>
-                    <p className="mt-1 text-sm font-bold text-violet-600">
+                    <p className="mt-1 text-sm font-bold text-pink-600">
                       {formatPrice(item.product.price)}
                     </p>
                     {item.product.stock <= 5 && (
@@ -228,7 +228,7 @@ export default function CartPage() {
                   <div className="flex items-center gap-4 text-right">
                     <div className="text-right">
                       <div className="text-xs text-slate-400">Tổng</div>
-                      <div className="font-black text-violet-600">
+                      <div className="font-black text-pink-600">
                         {formatPrice(item.subtotal)}
                       </div>
                     </div>
@@ -266,14 +266,14 @@ export default function CartPage() {
                 </div>
 
                 {shippingFee > 0 && (
-                  <p className="text-xs text-violet-600 font-semibold">
+                  <p className="text-xs text-pink-600 font-semibold">
                     💡 Mua thêm {formatPrice(500000 - subtotal)} để nhận Miễn phí vận chuyển!
                   </p>
                 )}
 
                 <div className="border-t border-slate-200 pt-4 flex justify-between text-base">
                   <span className="font-black">Tổng tiền</span>
-                  <span className="font-black text-2xl text-violet-600">
+                  <span className="font-black text-2xl text-pink-600">
                     {formatPrice(total)}
                   </span>
                 </div>
@@ -281,7 +281,7 @@ export default function CartPage() {
 
               <button
                 onClick={() => router.push("/checkout")}
-                className="mt-8 w-full rounded-2xl bg-slate-950 py-4 text-sm font-black text-white shadow-xl transition hover:-translate-y-0.5 hover:bg-violet-600"
+                className="mt-8 w-full rounded-2xl bg-slate-950 py-4 text-sm font-black text-white shadow-xl transition hover:-translate-y-0.5 hover:bg-pink-600"
               >
                 Tiến hành thanh toán →
               </button>
