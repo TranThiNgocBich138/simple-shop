@@ -37,7 +37,7 @@ export default function AdminLayout({ children }) {
     return (
       <div className="min-h-screen bg-slate-950 flex items-center justify-center text-white">
         <div className="text-center">
-          <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-violet-500 border-t-transparent" />
+          <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-pink-500 border-t-transparent" />
           <p className="mt-3 text-slate-400 font-medium">Đang xác thực quyền Admin...</p>
         </div>
       </div>
@@ -61,12 +61,12 @@ export default function AdminLayout({ children }) {
         <div>
           {/* BRAND */}
           <Link href="/" className="flex items-center gap-3 mb-8">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-violet-600 font-black text-white">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-600 font-black text-white">
               S
             </div>
             <div>
               <div className="font-black text-white tracking-tight">SIMPLE SHOP</div>
-              <div className="-mt-1 text-[10px] font-bold text-violet-400">ADMIN PANEL</div>
+              <div className="-mt-1 text-[10px] font-bold text-blue-400">ADMIN PANEL</div>
             </div>
           </Link>
 
@@ -80,7 +80,7 @@ export default function AdminLayout({ children }) {
                   href={item.href}
                   className={`flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-bold transition ${
                     active
-                      ? "bg-violet-600 text-white shadow-lg shadow-violet-900/50"
+                      ? "bg-blue-600 text-white shadow-lg shadow-pink-900/50"
                       : "text-slate-400 hover:bg-slate-800 hover:text-white"
                   }`}
                 >
@@ -95,12 +95,12 @@ export default function AdminLayout({ children }) {
         {/* BOTTOM USER INFO */}
         <div className="mt-8 border-t border-slate-800 pt-6">
           <div className="flex items-center gap-3 mb-4">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-violet-500/20 text-violet-300 font-black">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-500/20 text-pink-300 font-black">
               {user.name ? user.name.charAt(0).toUpperCase() : "A"}
             </div>
             <div className="min-w-0">
               <p className="text-sm font-bold truncate text-white">{user.name}</p>
-              <p className="text-xs text-violet-400 font-semibold">Quản trị viên</p>
+              <p className="text-xs text-blue-400 font-semibold">Quản trị viên</p>
             </div>
           </div>
 

@@ -12,8 +12,7 @@ module.exports = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        violet: colors.pink,
-        indigo: colors.rose,
+        accent: "var(--accent)",
       },
     },
   },

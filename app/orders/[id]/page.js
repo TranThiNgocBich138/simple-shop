@@ -32,7 +32,7 @@ function getStatusBadge(status) {
     case "DELIVERED":
       return <span className="rounded-full bg-emerald-50 px-4 py-1.5 text-xs font-bold text-emerald-600 border border-emerald-200">Đã giao thành công</span>;
     case "CANCELLED":
-      return <span className="rounded-full bg-rose-50 px-4 py-1.5 text-xs font-bold text-rose-600 border border-rose-200">Đã hủy</span>;
+      return <span className="rounded-full bg-indigo-50 px-4 py-1.5 text-xs font-bold text-indigo-600 border border-indigo-200">Đã hủy</span>;
     default:
       return <span className="rounded-full bg-slate-100 px-4 py-1.5 text-xs font-bold text-slate-600">{status}</span>;
   }
@@ -70,23 +70,23 @@ export default function OrderDetailPage() {
   }, [params.id]);
 
   return (
-    <main className="min-h-screen bg-[#fff5fb] text-slate-900">
+    <main className="min-h-screen bg-[#f8faff] text-slate-900">
       {/* HEADER */}
-      <header className="sticky top-0 z-50 border-b border-slate-200/70 bg-white/90 backdrop-blur-xl">
+      <header className="sticky top-0 z-50 border-b border-blue-100 bg-white/90 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
           <Link href="/" className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-600 to-indigo-600 text-xl font-black text-white shadow-lg">
+            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-600 text-xl font-black text-white shadow-lg shadow-blue-200">
               S
             </div>
             <div>
               <div className="text-lg font-black tracking-tight">SIMPLE</div>
-              <div className="-mt-1 text-[9px] font-bold tracking-[0.25em] text-violet-600">
+              <div className="-mt-1 text-[9px] font-bold tracking-[0.25em] text-blue-600">
                 SHOP
               </div>
             </div>
           </Link>
 
-          <Link href="/orders" className="text-sm font-bold text-slate-600 hover:text-violet-600">
+          <Link href="/orders" className="text-sm font-bold text-slate-600 hover:text-blue-600">
             ← Trở lại danh sách đơn hàng
           </Link>
         </div>
@@ -96,7 +96,7 @@ export default function OrderDetailPage() {
       <div className="mx-auto max-w-4xl px-5 py-10 lg:px-8">
         {loading ? (
           <div className="mt-12 text-center py-12">
-            <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-violet-600 border-t-transparent" />
+            <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-blue-600 border-t-transparent" />
             <p className="mt-3 text-slate-500 font-semibold">Đang tải thông tin đơn hàng...</p>
           </div>
         ) : error ? (
@@ -106,7 +106,7 @@ export default function OrderDetailPage() {
             <p className="mt-2 text-slate-500">Bạn không thể xem đơn hàng này.</p>
             <Link
               href="/orders"
-              className="mt-6 inline-block rounded-2xl bg-slate-950 px-8 py-4 text-sm font-black text-white shadow-xl hover:bg-violet-600 transition"
+              className="mt-6 inline-block rounded-2xl bg-slate-950 px-8 py-4 text-sm font-black text-white shadow-xl hover:bg-blue-600 transition"
             >
               Về danh sách đơn hàng của bạn →
             </Link>
@@ -117,7 +117,7 @@ export default function OrderDetailPage() {
             <div className="flex flex-wrap items-center justify-between gap-4 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
               <div>
                 <span className="text-xs font-bold text-slate-400">CHI TIẾT ĐƠN HÀNG</span>
-                <h1 className="text-2xl font-black text-violet-600 mt-1">{order.orderNumber}</h1>
+                <h1 className="text-2xl font-black text-blue-600 mt-1">{order.orderNumber}</h1>
                 <p className="text-xs text-slate-500 mt-1">Ngày đặt: {formatDate(order.createdAt)}</p>
               </div>
 
@@ -166,7 +166,7 @@ export default function OrderDetailPage() {
                       </p>
                     </div>
 
-                    <p className="font-black text-violet-600">
+                    <p className="font-black text-blue-600">
                       {formatPrice(item.price * item.quantity)}
                     </p>
                   </div>
@@ -188,7 +188,7 @@ export default function OrderDetailPage() {
                 </div>
                 <div className="flex justify-between border-t border-slate-100 pt-3 text-lg">
                   <span className="font-black">Tổng thanh toán</span>
-                  <span className="font-black text-2xl text-violet-600">{formatPrice(order.totalAmount)}</span>
+                  <span className="font-black text-2xl text-blue-600">{formatPrice(order.totalAmount)}</span>
                 </div>
               </div>
             </div>

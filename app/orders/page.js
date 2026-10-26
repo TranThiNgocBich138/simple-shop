@@ -31,7 +31,7 @@ function getStatusBadge(status) {
     case "DELIVERED":
       return <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-600 border border-emerald-200">Đã giao thành công</span>;
     case "CANCELLED":
-      return <span className="rounded-full bg-rose-50 px-3 py-1 text-xs font-bold text-rose-600 border border-rose-200">Đã hủy</span>;
+      return <span className="rounded-full bg-indigo-50 px-3 py-1 text-xs font-bold text-indigo-600 border border-indigo-200">Đã hủy</span>;
     default:
       return <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-slate-600">{status}</span>;
   }
@@ -71,23 +71,23 @@ export default function OrdersPage() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-[#fff5fb] text-slate-900">
+    <main className="min-h-screen bg-[#f8faff] text-slate-900">
       {/* HEADER */}
-      <header className="sticky top-0 z-50 border-b border-slate-200/70 bg-white/90 backdrop-blur-xl">
+      <header className="sticky top-0 z-50 border-b border-blue-100 bg-white/90 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
           <Link href="/" className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-600 to-indigo-600 text-xl font-black text-white shadow-lg">
+            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-600 text-xl font-black text-white shadow-lg shadow-blue-200">
               S
             </div>
             <div>
               <div className="text-lg font-black tracking-tight">SIMPLE</div>
-              <div className="-mt-1 text-[10px] font-bold tracking-[0.25em] text-violet-600">
+              <div className="-mt-1 text-[10px] font-bold tracking-[0.25em] text-blue-600">
                 SHOP
               </div>
             </div>
           </Link>
 
-          <Link href="/" className="text-sm font-bold text-slate-600 hover:text-violet-600">
+          <Link href="/" className="text-sm font-bold text-slate-600 hover:text-blue-600">
             ← Quay lại trang chủ
           </Link>
         </div>
@@ -101,7 +101,7 @@ export default function OrdersPage() {
 
         {loading ? (
           <div className="mt-12 text-center py-12">
-            <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-violet-600 border-t-transparent" />
+            <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-blue-600 border-t-transparent" />
             <p className="mt-3 text-slate-500 font-semibold">Đang tải danh sách đơn hàng...</p>
           </div>
         ) : !user ? (
@@ -111,7 +111,7 @@ export default function OrdersPage() {
             <p className="mt-2 text-slate-500">Vui lòng đăng nhập để xem lịch sử đơn hàng của bạn.</p>
             <Link
               href="/login?redirect=/orders"
-              className="mt-6 inline-block rounded-2xl bg-slate-950 px-8 py-4 text-sm font-black text-white shadow-xl hover:bg-violet-600 transition"
+              className="mt-6 inline-block rounded-2xl bg-slate-950 px-8 py-4 text-sm font-black text-white shadow-xl hover:bg-blue-600 transition"
             >
               Đăng nhập ngay →
             </Link>
@@ -123,7 +123,7 @@ export default function OrdersPage() {
             <p className="mt-2 text-slate-500">Bạn chưa thực hiện đơn hàng nào tại Simple Shop.</p>
             <Link
               href="/"
-              className="mt-6 inline-block rounded-2xl bg-slate-950 px-8 py-4 text-sm font-black text-white shadow-xl hover:bg-violet-600 transition"
+              className="mt-6 inline-block rounded-2xl bg-slate-950 px-8 py-4 text-sm font-black text-white shadow-xl hover:bg-blue-600 transition"
             >
               Khám phá sản phẩm ngay →
             </Link>
@@ -133,13 +133,13 @@ export default function OrdersPage() {
             {orders.map((order) => (
               <div
                 key={order.id}
-                className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:border-violet-200"
+                className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:border-blue-200"
               >
                 {/* ORDER HEADER */}
                 <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-100 bg-slate-50/50 p-6">
                   <div>
                     <span className="text-xs font-semibold text-slate-400">MÃ ĐƠN HÀNG</span>
-                    <h3 className="font-black text-violet-600">{order.orderNumber}</h3>
+                    <h3 className="font-black text-blue-600">{order.orderNumber}</h3>
                     <p className="text-xs text-slate-400 mt-1">{formatDate(order.createdAt)}</p>
                   </div>
 
@@ -147,7 +147,7 @@ export default function OrdersPage() {
                     {getStatusBadge(order.status)}
                     <Link
                       href={`/orders/${order.id}`}
-                      className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-xs font-bold text-slate-700 hover:bg-slate-50 hover:text-violet-600 transition"
+                      className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-xs font-bold text-slate-700 hover:bg-slate-50 hover:text-blue-600 transition"
                     >
                       Chi tiết →
                     </Link>
@@ -158,14 +158,16 @@ export default function OrdersPage() {
                 <div className="p-6 divide-y divide-slate-100">
                   {order.items.map((item) => (
                     <div key={item.id} className="py-3 first:pt-0 last:pb-0 flex items-center gap-4">
-                      <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-xl bg-slate-100">
-                        <Image src={item.product.image} alt={item.product.name} fill className="object-cover" />
-                      </div>
+                      <Link href={`/products/${item.productId}`} className="relative h-14 w-14 shrink-0 overflow-hidden rounded-xl bg-slate-100 block group">
+                        <Image src={item.product.image} alt={item.product.name} fill className="object-cover group-hover:scale-105 transition" />
+                      </Link>
                       <div className="flex-1 min-w-0">
-                        <p className="font-bold truncate">{item.product.name}</p>
+                        <Link href={`/products/${item.productId}`}>
+                          <p className="font-bold truncate hover:text-blue-600 transition">{item.product.name}</p>
+                        </Link>
                         <p className="text-xs text-slate-500">Số lượng: {item.quantity}</p>
                       </div>
-                      <p className="font-black text-violet-600 text-sm">
+                      <p className="font-black text-blue-600 text-sm">
                         {formatPrice(item.price * item.quantity)}
                       </p>
                     </div>
@@ -175,7 +177,7 @@ export default function OrdersPage() {
                 {/* FOOTER */}
                 <div className="border-t border-slate-100 bg-slate-50/30 px-6 py-4 flex justify-between items-center text-sm">
                   <span className="text-slate-500 font-semibold">Tổng số tiền</span>
-                  <span className="font-black text-xl text-violet-600">{formatPrice(order.totalAmount)}</span>
+                  <span className="font-black text-xl text-blue-600">{formatPrice(order.totalAmount)}</span>
                 </div>
               </div>
             ))}

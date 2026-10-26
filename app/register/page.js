@@ -92,7 +92,7 @@ export default function RegisterPage() {
   }
 
   return (
-    <main className="min-h-screen bg-[#fff5f8]">
+    <main className="min-h-screen bg-[#f8faff]">
       <div className="pointer-events-none fixed inset-0 overflow-hidden">
         <div className="absolute -left-40 -top-40 h-[500px] w-[500px] rounded-full bg-pink-300/20 blur-3xl" />
         <div className="absolute -bottom-40 -right-40 h-[500px] w-[500px] rounded-full bg-rose-300/20 blur-3xl" />
@@ -103,12 +103,12 @@ export default function RegisterPage() {
 
           {/* LEFT */}
           <div className="relative hidden overflow-hidden bg-slate-950 p-12 text-white lg:flex lg:flex-col lg:justify-between">
-            <div className="absolute -right-32 -top-32 h-80 w-80 rounded-full bg-pink-600/40 blur-3xl" />
-            <div className="absolute -bottom-40 -left-20 h-96 w-96 rounded-full bg-rose-600/30 blur-3xl" />
+            <div className="absolute -right-32 -top-32 h-80 w-80 rounded-full bg-blue-600/40 blur-3xl" />
+            <div className="absolute -bottom-40 -left-20 h-96 w-96 rounded-full bg-indigo-600/30 blur-3xl" />
 
             <div className="relative z-10">
               <Link href="/" className="inline-flex items-center gap-3">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-pink-500 to-rose-500 text-xl font-black shadow-lg shadow-pink-900/50">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-600 text-xl font-black shadow-lg shadow-pink-900/50">
                   S
                 </div>
 
@@ -124,15 +124,15 @@ export default function RegisterPage() {
             </div>
 
             <div className="relative z-10">
-              <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold text-pink-200">
-                <span className="h-2 w-2 rounded-full bg-pink-400" />
+              <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold text-blue-200">
+                <span className="h-2 w-2 rounded-full bg-blue-400" />
                 Join Simple Shop
               </div>
 
               <h1 className="max-w-md text-5xl font-black leading-[1.05]">
                 Tạo tài khoản.
                 <br />
-                <span className="text-pink-400">
+                <span className="text-blue-400">
                   Bắt đầu mua sắm.
                 </span>
               </h1>
@@ -149,7 +149,7 @@ export default function RegisterPage() {
                   "Nhận ưu đãi dành riêng cho thành viên",
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-3">
-                    <div className="flex h-7 w-7 items-center justify-center rounded-full bg-pink-500/20 text-pink-300">
+                    <div className="flex h-7 w-7 items-center justify-center rounded-full bg-blue-500/20 text-pink-300">
                       ✓
                     </div>
                     <span className="text-slate-300">{item}</span>
@@ -170,20 +170,20 @@ export default function RegisterPage() {
               {/* Mobile logo */}
               <div className="mb-10 lg:hidden">
                 <Link href="/" className="inline-flex items-center gap-3">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-pink-500 to-rose-500 font-black text-white shadow-lg shadow-pink-200">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 font-black text-white shadow-lg shadow-blue-200">
                     S
                   </div>
 
                   <div>
                     <div className="font-black">SIMPLE</div>
-                    <div className="-mt-1 text-[9px] font-bold tracking-[0.25em] text-pink-600">
+                    <div className="-mt-1 text-[9px] font-bold tracking-[0.25em] text-blue-600">
                       SHOP
                     </div>
                   </div>
                 </Link>
               </div>
 
-              <p className="text-sm font-bold text-pink-600">
+              <p className="text-sm font-bold text-blue-600">
                 THÀNH VIÊN MỚI
               </p>
 
@@ -258,7 +258,7 @@ export default function RegisterPage() {
                     <button
                       type="button"
                       onClick={() => setShowPassword(!showPassword)}
-                      className="text-xs font-bold text-slate-400 hover:text-pink-600"
+                      className="text-xs font-bold text-slate-400 hover:text-blue-600"
                     >
                       {showPassword ? "Ẩn" : "Hiện"}
                     </button>
@@ -286,7 +286,7 @@ export default function RegisterPage() {
                     <button
                       type="button"
                       onClick={() => setShowConfirm(!showConfirm)}
-                      className="text-xs font-bold text-slate-400 hover:text-pink-600"
+                      className="text-xs font-bold text-slate-400 hover:text-blue-600"
                     >
                       {showConfirm ? "Ẩn" : "Hiện"}
                     </button>
@@ -330,7 +330,7 @@ export default function RegisterPage() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="mt-2 w-full rounded-2xl bg-slate-950 py-4 text-sm font-black text-white shadow-xl shadow-slate-200 transition duration-300 hover:-translate-y-0.5 hover:bg-pink-600 hover:shadow-pink-200 disabled:cursor-not-allowed disabled:opacity-60"
+                  className="mt-2 w-full rounded-2xl bg-slate-950 py-4 text-sm font-black text-white shadow-xl shadow-slate-200 transition duration-300 hover:-translate-y-0.5 hover:bg-blue-600 hover:shadow-blue-200 disabled:cursor-not-allowed disabled:opacity-60"
                 >
                   {loading ? "Đang tạo tài khoản..." : "Tạo tài khoản →"}
                 </button>
@@ -340,7 +340,7 @@ export default function RegisterPage() {
                 Đã có tài khoản?{" "}
                 <Link
                   href="/login"
-                  className="font-black text-pink-600 hover:text-pink-800"
+                  className="font-black text-blue-600 hover:text-blue-800"
                 >
                   Đăng nhập
                 </Link>
@@ -349,7 +349,7 @@ export default function RegisterPage() {
               <div className="mt-4 text-center">
                 <Link
                   href="/"
-                  className="text-xs font-semibold text-slate-400 hover:text-pink-600"
+                  className="text-xs font-semibold text-slate-400 hover:text-blue-600"
                 >
                   ← Quay lại cửa hàng
                 </Link>

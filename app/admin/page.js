@@ -40,7 +40,7 @@ export default function AdminDashboardPage() {
   if (loading) {
     return (
       <div className="py-20 text-center text-slate-400">
-        <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-violet-500 border-t-transparent" />
+        <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-pink-500 border-t-transparent" />
         <p className="mt-3 font-semibold">Đang tải dữ liệu dashboard...</p>
       </div>
     );
@@ -49,8 +49,8 @@ export default function AdminDashboardPage() {
   if (!data) return <div className="text-red-400">Không thể tải dữ liệu dashboard.</div>;
 
   const stats = [
-    { label: "Tổng sản phẩm", value: data.totalProducts, icon: "🛍️", color: "from-blue-500/20 to-indigo-500/20 border-blue-500/30" },
-    { label: "Tổng số người dùng", value: data.totalUsers, icon: "👥", color: "from-violet-500/20 to-purple-500/20 border-violet-500/30" },
+    { label: "Tổng sản phẩm", value: data.totalProducts, icon: "🛍️", color: "from-pink-500/20 to-rose-500/20 border-pink-500/30" },
+    { label: "Tổng số người dùng", value: data.totalUsers, icon: "👥", color: "from-pink-500/20 to-fuchsia-500/20 border-pink-500/30" },
     { label: "Tổng đơn hàng", value: data.totalOrders, icon: "📦", color: "from-amber-500/20 to-orange-500/20 border-amber-500/30" },
     { label: "Tổng doanh thu", value: formatPrice(data.totalRevenue), icon: "💰", color: "from-emerald-500/20 to-teal-500/20 border-emerald-500/30" },
   ];
@@ -85,7 +85,7 @@ export default function AdminDashboardPage() {
         <div className="rounded-3xl border border-slate-800 bg-slate-900 p-6 shadow-xl">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-lg font-black text-white">Đơn hàng mới nhất</h2>
-            <Link href="/admin/orders" className="text-xs font-bold text-violet-400 hover:underline">
+            <Link href="/admin/orders" className="text-xs font-bold text-blue-400 hover:underline">
               Xem tất cả →
             </Link>
           </div>
@@ -106,7 +106,7 @@ export default function AdminDashboardPage() {
                     </p>
                   </div>
                   <div className="text-right">
-                    <p className="font-bold text-sm text-violet-400">{formatPrice(order.totalAmount)}</p>
+                    <p className="font-bold text-sm text-blue-400">{formatPrice(order.totalAmount)}</p>
                     <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-800 text-slate-300">
                       {order.status}
                     </span>
@@ -121,7 +121,7 @@ export default function AdminDashboardPage() {
         <div className="rounded-3xl border border-slate-800 bg-slate-900 p-6 shadow-xl">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-lg font-black text-white">⚠️ Sản phẩm sắp hết hàng</h2>
-            <Link href="/admin/products" className="text-xs font-bold text-violet-400 hover:underline">
+            <Link href="/admin/products" className="text-xs font-bold text-blue-400 hover:underline">
               Quản lý kho →
             </Link>
           </div>

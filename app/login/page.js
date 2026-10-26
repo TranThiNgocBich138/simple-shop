@@ -70,12 +70,12 @@ function LoginForm() {
       {/* MOBILE LOGO */}
       <div className="mb-10 lg:hidden">
         <Link href="/" className="inline-flex items-center gap-3">
-          <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-pink-500 to-rose-500 font-black text-white shadow-lg shadow-pink-200">
+          <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 font-black text-white shadow-lg shadow-blue-200">
             S
           </div>
           <div>
             <div className="font-black tracking-tight">SIMPLE</div>
-            <div className="-mt-1 text-[9px] font-bold tracking-[0.25em] text-pink-600">
+            <div className="-mt-1 text-[9px] font-bold tracking-[0.25em] text-blue-600">
               SHOP
             </div>
           </div>
@@ -84,7 +84,7 @@ function LoginForm() {
 
       {/* TITLE */}
       <div>
-        <p className="text-sm font-bold text-pink-600">TÀI KHOẢN</p>
+        <p className="text-sm font-bold text-blue-600">TÀI KHOẢN</p>
         <h2 className="mt-2 text-3xl font-black tracking-tight sm:text-4xl">
           Đăng nhập
         </h2>
@@ -130,7 +130,7 @@ function LoginForm() {
             <button
               type="button"
               onClick={() => setShowPassword((value) => !value)}
-              className="text-sm text-slate-400 transition hover:text-pink-600 font-semibold"
+              className="text-sm text-slate-400 transition hover:text-blue-600 font-semibold"
             >
               {showPassword ? "Ẩn" : "Hiện"}
             </button>
@@ -148,7 +148,7 @@ function LoginForm() {
         <button
           type="submit"
           disabled={loading}
-          className="w-full rounded-2xl bg-slate-950 py-4 text-sm font-black text-white shadow-xl shadow-slate-200 transition duration-300 hover:-translate-y-0.5 hover:bg-pink-600 hover:shadow-pink-200 disabled:cursor-not-allowed disabled:opacity-60"
+          className="w-full rounded-2xl bg-slate-950 py-4 text-sm font-black text-white shadow-xl shadow-slate-200 transition duration-300 hover:-translate-y-0.5 hover:bg-blue-600 hover:shadow-blue-200 disabled:cursor-not-allowed disabled:opacity-60"
         >
           {loading ? "Đang đăng nhập..." : "Đăng nhập →"}
         </button>
@@ -159,7 +159,7 @@ function LoginForm() {
         Chưa có tài khoản?{" "}
         <Link
           href="/register"
-          className="font-black text-pink-600 hover:text-pink-800"
+          className="font-black text-blue-600 hover:text-blue-800"
         >
           Đăng ký ngay
         </Link>
@@ -169,7 +169,7 @@ function LoginForm() {
       <div className="mt-5 text-center">
         <Link
           href="/"
-          className="text-xs font-semibold text-slate-400 transition hover:text-pink-600"
+          className="text-xs font-semibold text-slate-400 transition hover:text-blue-600"
         >
           ← Quay lại cửa hàng
         </Link>
@@ -180,7 +180,7 @@ function LoginForm() {
 
 export default function LoginPage() {
   return (
-    <main className="min-h-screen bg-[#fff5f8]">
+    <main className="min-h-screen bg-[#f8faff]">
       {/* BACKGROUND */}
       <div className="pointer-events-none fixed inset-0 overflow-hidden">
         <div className="absolute -left-40 -top-40 h-[500px] w-[500px] rounded-full bg-pink-300/20 blur-3xl" />
@@ -191,12 +191,12 @@ export default function LoginPage() {
         <div className="grid w-full max-w-6xl overflow-hidden rounded-[2rem] bg-white shadow-2xl shadow-slate-200/70 lg:grid-cols-2">
           {/* LEFT */}
           <div className="relative hidden overflow-hidden bg-slate-950 p-12 text-white lg:flex lg:flex-col lg:justify-between">
-            <div className="absolute -right-32 -top-32 h-80 w-80 rounded-full bg-pink-600/40 blur-3xl" />
-            <div className="absolute -bottom-40 -left-20 h-96 w-96 rounded-full bg-rose-600/30 blur-3xl" />
+            <div className="absolute -right-32 -top-32 h-80 w-80 rounded-full bg-blue-600/40 blur-3xl" />
+            <div className="absolute -bottom-40 -left-20 h-96 w-96 rounded-full bg-indigo-600/30 blur-3xl" />
 
             <div className="relative z-10">
               <Link href="/" className="inline-flex items-center gap-3">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-pink-500 to-rose-500 text-xl font-black shadow-lg shadow-pink-900/50">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-600 text-xl font-black shadow-lg shadow-pink-900/50">
                   S
                 </div>
                 <div>
@@ -211,15 +211,15 @@ export default function LoginPage() {
             </div>
 
             <div className="relative z-10">
-              <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold text-pink-200 backdrop-blur">
-                <span className="h-2 w-2 rounded-full bg-pink-400" />
+              <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold text-blue-200 backdrop-blur">
+                <span className="h-2 w-2 rounded-full bg-blue-400" />
                 Welcome back
               </div>
 
               <h1 className="max-w-md text-5xl font-black leading-[1.05]">
                 Chào mừng bạn
                 <br />
-                <span className="text-pink-400">quay trở lại.</span>
+                <span className="text-blue-400">quay trở lại.</span>
               </h1>
 
               <p className="mt-6 max-w-md leading-7 text-slate-400">

@@ -107,7 +107,7 @@ export default function AdminCategoriesPage() {
                 onChange={(e) => handleNameChange(e.target.value)}
                 required
                 placeholder="Thời trang, Giày dép..."
-                className="w-full rounded-2xl border border-slate-800 bg-slate-950 p-4 text-sm text-white outline-none focus:border-violet-500"
+                className="w-full rounded-2xl border border-slate-800 bg-slate-950 p-4 text-sm text-white outline-none focus:border-blue-500"
               />
             </div>
 
@@ -119,7 +119,7 @@ export default function AdminCategoriesPage() {
                 onChange={(e) => setSlug(e.target.value)}
                 required
                 placeholder="thoi-trang, giay-dep..."
-                className="w-full rounded-2xl border border-slate-800 bg-slate-950 p-4 text-sm text-white outline-none focus:border-violet-500"
+                className="w-full rounded-2xl border border-slate-800 bg-slate-950 p-4 text-sm text-white outline-none focus:border-blue-500"
               />
             </div>
 
@@ -130,7 +130,7 @@ export default function AdminCategoriesPage() {
                 value={icon}
                 onChange={(e) => setIcon(e.target.value)}
                 placeholder="✦, ◈, ◇..."
-                className="w-full rounded-2xl border border-slate-800 bg-slate-950 p-4 text-sm text-white outline-none focus:border-violet-500"
+                className="w-full rounded-2xl border border-slate-800 bg-slate-950 p-4 text-sm text-white outline-none focus:border-blue-500"
               />
             </div>
 
@@ -141,14 +141,14 @@ export default function AdminCategoriesPage() {
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 placeholder="Mô tả danh mục..."
-                className="w-full rounded-2xl border border-slate-800 bg-slate-950 p-4 text-sm text-white outline-none focus:border-violet-500"
+                className="w-full rounded-2xl border border-slate-800 bg-slate-950 p-4 text-sm text-white outline-none focus:border-blue-500"
               />
             </div>
 
             <button
               type="submit"
               disabled={submitting}
-              className="w-full rounded-2xl bg-violet-600 py-3.5 text-sm font-bold text-white shadow-lg hover:bg-violet-500 transition disabled:opacity-60"
+              className="w-full rounded-2xl bg-blue-600 py-3.5 text-sm font-bold text-white shadow-lg hover:bg-blue-500 transition disabled:opacity-60"
             >
               {submitting ? "Đang tạo..." : "Tạo danh mục"}
             </button>
@@ -159,7 +159,7 @@ export default function AdminCategoriesPage() {
         <div className="lg:col-span-2">
           {loading ? (
             <div className="py-20 text-center text-slate-400">
-              <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-violet-500 border-t-transparent" />
+              <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-pink-500 border-t-transparent" />
             </div>
           ) : (
             <div className="grid gap-4 sm:grid-cols-2">
@@ -169,7 +169,7 @@ export default function AdminCategoriesPage() {
                   className="rounded-3xl border border-slate-800 bg-slate-900 p-6 shadow-xl flex items-center justify-between"
                 >
                   <div className="flex items-center gap-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-950 text-2xl text-violet-400 border border-slate-800">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-950 text-2xl text-blue-400 border border-slate-800">
                       {cat.icon || "✦"}
                     </div>
                     <div>
@@ -177,7 +177,7 @@ export default function AdminCategoriesPage() {
                       <p className="text-xs text-slate-400">/{cat.slug}</p>
                     </div>
                   </div>
-                  <span className="rounded-full bg-violet-500/10 px-3 py-1 text-xs font-bold text-violet-300 border border-violet-500/20">
+                  <span className="rounded-full bg-blue-500/10 px-3 py-1 text-xs font-bold text-pink-300 border border-pink-500/20">
                     {cat._count?.products || 0} sản phẩm
                   </span>
                 </div>

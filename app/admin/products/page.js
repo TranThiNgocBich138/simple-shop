@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
@@ -169,7 +170,7 @@ export default function AdminProductsPage() {
 
         <button
           onClick={openCreateModal}
-          className="rounded-2xl bg-violet-600 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-violet-900/50 hover:bg-violet-500 transition"
+          className="rounded-2xl bg-blue-600 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-pink-900/50 hover:bg-blue-500 transition"
         >
           + Thêm sản phẩm mới
         </button>
@@ -182,7 +183,7 @@ export default function AdminProductsPage() {
       {/* PRODUCTS TABLE */}
       {loading ? (
         <div className="py-20 text-center text-slate-400">
-          <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-violet-500 border-t-transparent" />
+          <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-pink-500 border-t-transparent" />
           <p className="mt-3 font-semibold">Đang tải danh sách sản phẩm...</p>
         </div>
       ) : (
@@ -207,11 +208,11 @@ export default function AdminProductsPage() {
                     </div>
                     <div>
                       <p className="font-bold text-white">{prod.name}</p>
-                      {prod.badge && <span className="text-[10px] bg-violet-500/20 text-violet-300 px-2 py-0.5 rounded-full border border-violet-500/30">{prod.badge}</span>}
+                      {prod.badge && <span className="text-[10px] bg-blue-500/20 text-pink-300 px-2 py-0.5 rounded-full border border-pink-500/30">{prod.badge}</span>}
                     </div>
                   </td>
                   <td className="p-5 font-semibold text-slate-400">{prod.category?.name || "N/A"}</td>
-                  <td className="p-5 font-black text-violet-400">{formatPrice(prod.price)}</td>
+                  <td className="p-5 font-black text-blue-400">{formatPrice(prod.price)}</td>
                   <td className="p-5 font-bold">
                     <span className={prod.stock <= 10 ? "text-amber-400" : "text-slate-200"}>
                       {prod.stock}
@@ -219,6 +220,13 @@ export default function AdminProductsPage() {
                   </td>
                   <td className="p-5 font-semibold text-slate-400">{prod.sold}</td>
                   <td className="p-5 text-right space-x-2">
+                    <Link
+                      href={`/products/${prod.id}`}
+                      target="_blank"
+                      className="px-3 py-1.5 rounded-xl bg-blue-500/10 hover:bg-blue-500/20 text-xs font-bold text-blue-400 transition inline-block"
+                    >
+                      👁️ Xem
+                    </Link>
                     <button
                       onClick={() => openEditModal(prod)}
                       className="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold text-slate-200 transition"
@@ -255,7 +263,7 @@ export default function AdminProductsPage() {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   required
-                  className="w-full rounded-2xl border border-slate-800 bg-slate-950 p-4 text-sm text-white outline-none focus:border-violet-500"
+                  className="w-full rounded-2xl border border-slate-800 bg-slate-950 p-4 text-sm text-white outline-none focus:border-blue-500"
                 />
               </div>
 
@@ -266,7 +274,7 @@ export default function AdminProductsPage() {
                     value={categoryId}
                     onChange={(e) => setCategoryId(e.target.value)}
                     required
-                    className="w-full rounded-2xl border border-slate-800 bg-slate-950 p-4 text-sm text-white outline-none focus:border-violet-500"
+                    className="w-full rounded-2xl border border-slate-800 bg-slate-950 p-4 text-sm text-white outline-none focus:border-blue-500"
                   >
                     {categories.map((cat) => (
                       <option key={cat.id} value={cat.id}>
@@ -284,7 +292,7 @@ export default function AdminProductsPage() {
                     onChange={(e) => setPrice(e.target.value)}
                     required
                     min="0"
-                    className="w-full rounded-2xl border border-slate-800 bg-slate-950 p-4 text-sm text-white outline-none focus:border-violet-500"
+                    className="w-full rounded-2xl border border-slate-800 bg-slate-950 p-4 text-sm text-white outline-none focus:border-blue-500"
                   />
                 </div>
               </div>
@@ -297,7 +305,7 @@ export default function AdminProductsPage() {
                     value={oldPrice}
                     onChange={(e) => setOldPrice(e.target.value)}
                     min="0"
-                    className="w-full rounded-2xl border border-slate-800 bg-slate-950 p-4 text-sm text-white outline-none focus:border-violet-500"
+                    className="w-full rounded-2xl border border-slate-800 bg-slate-950 p-4 text-sm text-white outline-none focus:border-blue-500"
                   />
                 </div>
 
@@ -309,7 +317,7 @@ export default function AdminProductsPage() {
                     onChange={(e) => setStock(e.target.value)}
                     required
                     min="0"
-                    className="w-full rounded-2xl border border-slate-800 bg-slate-950 p-4 text-sm text-white outline-none focus:border-violet-500"
+                    className="w-full rounded-2xl border border-slate-800 bg-slate-950 p-4 text-sm text-white outline-none focus:border-blue-500"
                   />
                 </div>
 
@@ -320,7 +328,7 @@ export default function AdminProductsPage() {
                     value={badge}
                     onChange={(e) => setBadge(e.target.value)}
                     placeholder="Bán chạy, Hot..."
-                    className="w-full rounded-2xl border border-slate-800 bg-slate-950 p-4 text-sm text-white outline-none focus:border-violet-500"
+                    className="w-full rounded-2xl border border-slate-800 bg-slate-950 p-4 text-sm text-white outline-none focus:border-blue-500"
                   />
                 </div>
               </div>
@@ -333,7 +341,7 @@ export default function AdminProductsPage() {
                   onChange={(e) => setImage(e.target.value)}
                   required
                   placeholder="https://..."
-                  className="w-full rounded-2xl border border-slate-800 bg-slate-950 p-4 text-sm text-white outline-none focus:border-violet-500"
+                  className="w-full rounded-2xl border border-slate-800 bg-slate-950 p-4 text-sm text-white outline-none focus:border-blue-500"
                 />
               </div>
 
@@ -343,7 +351,7 @@ export default function AdminProductsPage() {
                   rows={3}
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
-                  className="w-full rounded-2xl border border-slate-800 bg-slate-950 p-4 text-sm text-white outline-none focus:border-violet-500"
+                  className="w-full rounded-2xl border border-slate-800 bg-slate-950 p-4 text-sm text-white outline-none focus:border-blue-500"
                 />
               </div>
 
@@ -353,7 +361,7 @@ export default function AdminProductsPage() {
                   type="checkbox"
                   checked={isFeatured}
                   onChange={(e) => setIsFeatured(e.target.checked)}
-                  className="h-4 w-4 rounded border-slate-700 accent-violet-600"
+                  className="h-4 w-4 rounded border-slate-700 accent-pink-600"
                 />
                 <label htmlFor="featured" className="text-sm font-semibold text-slate-300">
                   Hiển thị ở Sản phẩm nổi bật (Trang chủ)
@@ -371,7 +379,7 @@ export default function AdminProductsPage() {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="rounded-2xl bg-violet-600 px-6 py-3.5 text-sm font-bold text-white shadow-lg hover:bg-violet-500 transition disabled:opacity-60"
+                  className="rounded-2xl bg-blue-600 px-6 py-3.5 text-sm font-bold text-white shadow-lg hover:bg-blue-500 transition disabled:opacity-60"
                 >
                   {submitting ? "Đang lưu..." : "Lưu sản phẩm"}
                 </button>
