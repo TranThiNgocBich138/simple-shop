@@ -73,19 +73,25 @@ export default function ProductDetailPage({ params }) {
       try {
         setLoading(true);
 
-        // Fetch user info
-        const userRes = await fetch("/api/auth/me", { cache: "no-store" });
-        const userData = await userRes.json();
-        setUser(userData.user);
+        // Fetch user info & cart safely
+        try {
+          const userRes = await fetch("/api/auth/me", { cache: "no-store" });
+          if (userRes.ok) {
+            const userData = await userRes.json();
+            setUser(userData.user);
 
-        // Fetch cart count if logged in
-        if (userData.user) {
-          const cartRes = await fetch("/api/cart", { cache: "no-store" });
-          if (cartRes.ok) {
-            const cartData = await cartRes.json();
-            const totalQty = (cartData.items || []).reduce((sum, item) => sum + item.quantity, 0);
-            setCartCount(totalQty);
+            // Fetch cart count if logged in
+            if (userData.user) {
+              const cartRes = await fetch("/api/cart", { cache: "no-store" });
+              if (cartRes.ok) {
+                const cartData = await cartRes.json();
+                const totalQty = (cartData.items || []).reduce((sum, item) => sum + item.quantity, 0);
+                setCartCount(totalQty);
+              }
+            }
           }
+        } catch (authErr) {
+          console.warn("Auth check skipped:", authErr);
         }
 
         // Fetch product details

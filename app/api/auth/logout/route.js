@@ -5,13 +5,16 @@ export async function POST() {
     message: "Đăng xuất thành công.",
   });
 
-  response.cookies.set("userId", "", {
+  const clearCookieOptions = {
     httpOnly: true,
     sameSite: "lax",
     secure: process.env.NODE_ENV === "production",
     path: "/",
     maxAge: 0,
-  });
+  };
+
+  response.cookies.set("auth_token", "", clearCookieOptions);
+  response.cookies.set("userId", "", clearCookieOptions);
 
   return response;
 }

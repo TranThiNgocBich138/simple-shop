@@ -3,21 +3,31 @@ import { cookies } from "next/headers";
 import bcrypt from "bcryptjs";
 import prisma from "@/lib/prisma";
 
+import { getAuthUser } from "@/lib/auth";
+
 export const dynamic = "force-dynamic";
 
-// GET /api/auth/me - Lấy thông tin người dùng hiện tại (đã xử lý ở file me/route.js)
+// GET /api/auth/me - Lấy thông tin người dùng hiện tại
+export async function GET() {
+  try {
+    const user = await getAuthUser();
+    return NextResponse.json({ user });
+  } catch (error) {
+    console.error("GET_ME_ERROR:", error);
+    return NextResponse.json({ user: null, message: "Lỗi lấy thông tin người dùng." }, { status: 500 });
+  }
+}
+
 // PUT /api/auth/me - Cập nhật thông tin profile
 export async function PUT(request) {
   try {
-    const cookieStore = cookies();
-    const userId = cookieStore.get("userId")?.value;
-
-    if (!userId) {
+    const authUser = await getAuthUser();
+    if (!authUser) {
       return NextResponse.json({ message: "Chưa đăng nhập." }, { status: 401 });
     }
 
     const user = await prisma.user.findUnique({
-      where: { id: Number(userId) },
+      where: { id: authUser.id },
     });
 
     if (!user) {
@@ -57,7 +67,7 @@ export async function PUT(request) {
     }
 
     const updatedUser = await prisma.user.update({
-      where: { id: Number(userId) },
+      where: { id: authUser.id },
       data: updateData,
       select: {
         id: true,

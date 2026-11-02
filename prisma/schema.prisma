@@ -32,6 +32,7 @@ model User {
 
   carts     Cart[]
   orders    Order[]
+  reviews   Review[]
 }
 
 model Category {
@@ -65,6 +66,7 @@ model Product {
 
   cartItems   CartItem[]
   orderItems  OrderItem[]
+  reviews     Review[]
 }
 
 model Cart {
@@ -91,21 +93,23 @@ model CartItem {
 }
 
 model Order {
-  id            Int         @id @default(autoincrement())
-  orderNumber   String      @unique
-  userId        Int
-  user          User        @relation(fields: [userId], references: [id], onDelete: Cascade)
-  customerName  String
-  customerEmail String
-  customerPhone String
-  address       String
-  paymentMethod String      @default("COD")
-  status        OrderStatus @default(PENDING)
-  totalAmount   Int
-  createdAt     DateTime    @default(now())
-  updatedAt     DateTime    @updatedAt
+  id             Int         @id @default(autoincrement())
+  orderNumber    String      @unique
+  userId         Int
+  user           User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  customerName   String
+  customerEmail  String
+  customerPhone  String
+  address        String
+  paymentMethod  String      @default("COD")
+  status         OrderStatus @default(PENDING)
+  totalAmount    Int
+  couponCode     String?
+  discountAmount Int         @default(0)
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
 
-  items         OrderItem[]
+  items          OrderItem[]
 }
 
 model OrderItem {
@@ -117,4 +121,31 @@ model OrderItem {
   price     Int
   quantity  Int      @default(1)
   createdAt DateTime @default(now())
+}
+
+model Review {
+  id        Int      @id @default(autoincrement())
+  rating    Int      @default(5)
+  comment   String
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  productId Int
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([userId, productId])
+}
+
+model Coupon {
+  id          Int       @id @default(autoincrement())
+  code        String    @unique
+  discount    Int
+  isPercent   Boolean   @default(true)
+  minAmount   Int       @default(0)
+  maxDiscount Int?
+  expiresAt   DateTime?
+  isActive    Boolean   @default(true)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
 }

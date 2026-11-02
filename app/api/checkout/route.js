@@ -10,7 +10,7 @@ export async function POST(request) {
     }
 
     const body = await request.json();
-    const { customerName, customerEmail, customerPhone, address, paymentMethod } = body;
+    const { customerName, customerEmail, customerPhone, address, paymentMethod, couponCode } = body;
 
     if (!customerName || !customerPhone || !address) {
       return NextResponse.json(
@@ -63,7 +63,30 @@ export async function POST(request) {
 
     // Calculate shipping fee server side
     const shippingFee = totalAmount > 500000 ? 0 : 30000;
-    const finalTotal = totalAmount + shippingFee;
+
+    // Validate & apply coupon if provided
+    let discountAmount = 0;
+    let appliedCoupon = null;
+
+    if (couponCode) {
+      const code = couponCode.trim().toUpperCase();
+      const coupon = await prisma.coupon.findUnique({ where: { code } });
+      if (coupon && coupon.isActive && (!coupon.expiresAt || new Date(coupon.expiresAt) >= new Date())) {
+        if (totalAmount >= coupon.minAmount) {
+          if (coupon.isPercent) {
+            discountAmount = Math.round((totalAmount * coupon.discount) / 100);
+            if (coupon.maxDiscount && discountAmount > coupon.maxDiscount) {
+              discountAmount = coupon.maxDiscount;
+            }
+          } else {
+            discountAmount = Math.min(coupon.discount, totalAmount);
+          }
+          appliedCoupon = coupon.code;
+        }
+      }
+    }
+
+    const finalTotal = Math.max(0, totalAmount + shippingFee - discountAmount);
 
     // 3. Execute DB Transaction
     const order = await prisma.$transaction(async (tx) => {
@@ -81,6 +104,8 @@ export async function POST(request) {
           paymentMethod: paymentMethod || "COD",
           status: "PENDING",
           totalAmount: finalTotal,
+          couponCode: appliedCoupon,
+          discountAmount: discountAmount,
           items: {
             create: orderItemsData,
           },

@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 import prisma from "@/lib/prisma";
+import { signAuthToken } from "@/lib/auth";
 
 export async function POST(request) {
   try {
@@ -47,6 +48,9 @@ export async function POST(request) {
       );
     }
 
+    // Ký token bảo mật HMAC-SHA256
+    const token = signAuthToken({ userId: user.id, role: user.role, email: user.email });
+
     const response = NextResponse.json({
       message: "Đăng nhập thành công.",
       user: {
@@ -57,14 +61,17 @@ export async function POST(request) {
       },
     });
 
-    // Lưu ID người dùng vào cookie
-    response.cookies.set("userId", String(user.id), {
+    const cookieOptions = {
       httpOnly: true,
       sameSite: "lax",
       secure: process.env.NODE_ENV === "production",
       path: "/",
-      maxAge: 60 * 60 * 24 * 7,
-    });
+      maxAge: 60 * 60 * 24 * 7, // 7 ngày
+    };
+
+    // Thiết lập auth_token mã hóa có chữ ký
+    response.cookies.set("auth_token", token, cookieOptions);
+    response.cookies.set("userId", String(user.id), cookieOptions);
 
     return response;
   } catch (error) {

@@ -376,7 +376,7 @@ async function main() {
 
   // Seed Regular User
   const userPassword = await bcrypt.hash("user123456", 10);
-  await prisma.user.upsert({
+  const regularUser = await prisma.user.upsert({
     where: { email: "user@simpleshop.com" },
     update: {},
     create: {
@@ -386,6 +386,41 @@ async function main() {
       role: "USER",
     },
   });
+
+  // Seed Coupons
+  const sampleCoupons = [
+    { code: "GIAM10", discount: 10, isPercent: true, minAmount: 100000, maxDiscount: 50000, isActive: true },
+    { code: "FREESHIP", discount: 30000, isPercent: false, minAmount: 200000, maxDiscount: null, isActive: true },
+    { code: "VIP20", discount: 20, isPercent: true, minAmount: 500000, maxDiscount: 100000, isActive: true },
+  ];
+
+  for (const c of sampleCoupons) {
+    await prisma.coupon.upsert({
+      where: { code: c.code },
+      update: c,
+      create: c,
+    });
+  }
+
+  // Seed sample reviews
+  const firstProduct = await prisma.product.findFirst();
+  if (regularUser && firstProduct) {
+    await prisma.review.upsert({
+      where: {
+        userId_productId: {
+          userId: regularUser.id,
+          productId: firstProduct.id,
+        },
+      },
+      update: {},
+      create: {
+        userId: regularUser.id,
+        productId: firstProduct.id,
+        rating: 5,
+        comment: "Sản phẩm chất lượng cực kỳ tốt, giao hàng nhanh chóng và đóng gói kỹ càng!",
+      },
+    });
+  }
 
   console.log("Database seeded successfully!");
 }
