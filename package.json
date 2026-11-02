@@ -1,17 +1,29 @@
 {
-  "name": "simple-shop-monorepo",
+  "name": "simple-shop",
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "cd frontend && npm run dev",
-    "server": "cd server && npm run dev",
-    "frontend": "cd frontend && npm run dev",
-    "dev:server": "cd server && npm run dev",
-    "dev:frontend": "cd frontend && npm run dev",
-    "install:server": "cd server && npm install",
-    "install:frontend": "cd frontend && npm install",
-    "db:push": "cd server && npx prisma db push",
-    "db:seed": "cd server && node prisma/seed.js",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "postinstall": "prisma generate",
+    "db:push": "prisma db push",
     "test:api": "node scripts/test-all-apis.js"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.19.3",
+    "bcryptjs": "^3.0.3",
+    "dotenv": "^16.4.7",
+    "next": "14.2.32",
+    "prisma": "^6.19.3",
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "eslint": "^8",
+    "eslint-config-next": "14.2.32",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1"
   }
 }
